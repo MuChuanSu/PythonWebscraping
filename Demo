@@ -1,0 +1,12 @@
+import requests
+import lxml
+import bs4
+
+result = requests.get("https://en.wikipedia.org/wiki/Jonas_Salk")
+# result.text will print the whole html file as text
+
+soup = bs4.BeautifulSoup(result.text, "lxml")
+# use bs4.Beutiulsoup to make this whole string easier to read by rearranging it by tags
+
+print(soup.select('title')[0].getText())
+# grab the html tag content by tag,returns a list
